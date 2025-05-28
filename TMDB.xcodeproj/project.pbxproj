@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE492DE7056600C07654 /* MovieKit */; };
+		7BAACE4D2DE7065F00C07654 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE4C2DE7065F00C07654 /* NetworkKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		7B8EDECF2DE6FC6F0008E3CB /* TMDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8EDED92DE6FC6F0008E3CB /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAACE472DE7055500C07654 /* MovieKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MovieKit; sourceTree = "<group>"; };
+		7BAACE4B2DE7063B00C07654 /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAACE4D2DE7065F00C07654 /* NetworkKit in Frameworks */,
 				7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +84,7 @@
 		7B8EDEB92DE6FC6D0008E3CB = {
 			isa = PBXGroup;
 			children = (
+				7BAACE4B2DE7063B00C07654 /* NetworkKit */,
 				7BAACE472DE7055500C07654 /* MovieKit */,
 				7B8EDEC42DE6FC6D0008E3CB /* TMDB */,
 				7B8EDED22DE6FC6F0008E3CB /* TMDBTests */,
@@ -128,6 +132,7 @@
 			name = TMDB;
 			packageProductDependencies = (
 				7BAACE492DE7056600C07654 /* MovieKit */,
+				7BAACE4C2DE7065F00C07654 /* NetworkKit */,
 			);
 			productName = TMDB;
 			productReference = 7B8EDEC22DE6FC6D0008E3CB /* TMDB.app */;
@@ -419,8 +424,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,8 +452,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,6 +584,10 @@
 		7BAACE492DE7056600C07654 /* MovieKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MovieKit;
+		};
+		7BAACE4C2DE7065F00C07654 /* NetworkKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
