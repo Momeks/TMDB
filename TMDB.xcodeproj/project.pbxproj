@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE492DE7056600C07654 /* MovieKit */; };
 		7BAACE4D2DE7065F00C07654 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE4C2DE7065F00C07654 /* NetworkKit */; };
+		7BAACE622DE707F700C07654 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE612DE707F700C07654 /* NetworkKit */; };
+		7BAACE652DE7081E00C07654 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE642DE7081E00C07654 /* MovieKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +34,6 @@
 		7B8EDEC22DE6FC6D0008E3CB /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8EDECF2DE6FC6F0008E3CB /* TMDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8EDED92DE6FC6F0008E3CB /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BAACE472DE7055500C07654 /* MovieKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MovieKit; sourceTree = "<group>"; };
-		7BAACE4B2DE7063B00C07654 /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -59,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAACE652DE7081E00C07654 /* MovieKit in Frameworks */,
+				7BAACE622DE707F700C07654 /* NetworkKit in Frameworks */,
 				7BAACE4D2DE7065F00C07654 /* NetworkKit in Frameworks */,
 				7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */,
 			);
@@ -84,12 +86,9 @@
 		7B8EDEB92DE6FC6D0008E3CB = {
 			isa = PBXGroup;
 			children = (
-				7BAACE4B2DE7063B00C07654 /* NetworkKit */,
-				7BAACE472DE7055500C07654 /* MovieKit */,
 				7B8EDEC42DE6FC6D0008E3CB /* TMDB */,
 				7B8EDED22DE6FC6F0008E3CB /* TMDBTests */,
 				7B8EDEDC2DE6FC6F0008E3CB /* TMDBUITests */,
-				7BAACE482DE7056600C07654 /* Frameworks */,
 				7B8EDEC32DE6FC6D0008E3CB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,13 +101,6 @@
 				7B8EDED92DE6FC6F0008E3CB /* TMDBUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		7BAACE482DE7056600C07654 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +125,8 @@
 			packageProductDependencies = (
 				7BAACE492DE7056600C07654 /* MovieKit */,
 				7BAACE4C2DE7065F00C07654 /* NetworkKit */,
+				7BAACE612DE707F700C07654 /* NetworkKit */,
+				7BAACE642DE7081E00C07654 /* MovieKit */,
 			);
 			productName = TMDB;
 			productReference = 7B8EDEC22DE6FC6D0008E3CB /* TMDB.app */;
@@ -216,6 +210,10 @@
 			);
 			mainGroup = 7B8EDEB92DE6FC6D0008E3CB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7BAACE602DE707F700C07654 /* XCRemoteSwiftPackageReference "NetworkKit" */,
+				7BAACE632DE7081E00C07654 /* XCRemoteSwiftPackageReference "MovieKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7B8EDEC32DE6FC6D0008E3CB /* Products */;
 			projectDirPath = "";
@@ -580,6 +578,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		7BAACE602DE707F700C07654 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Momeks/NetworkKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		7BAACE632DE7081E00C07654 /* XCRemoteSwiftPackageReference "MovieKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Momeks/MovieKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		7BAACE492DE7056600C07654 /* MovieKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -588,6 +605,16 @@
 		7BAACE4C2DE7065F00C07654 /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkKit;
+		};
+		7BAACE612DE707F700C07654 /* NetworkKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAACE602DE707F700C07654 /* XCRemoteSwiftPackageReference "NetworkKit" */;
+			productName = NetworkKit;
+		};
+		7BAACE642DE7081E00C07654 /* MovieKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAACE632DE7081E00C07654 /* XCRemoteSwiftPackageReference "MovieKit" */;
+			productName = MovieKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
