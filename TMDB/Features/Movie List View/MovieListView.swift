@@ -49,7 +49,6 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("search", systemImage: "magnifyingglass") {
-                        // Add search functionality here
                     }
                 }
             }

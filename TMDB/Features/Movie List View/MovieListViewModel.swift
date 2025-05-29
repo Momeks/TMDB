@@ -16,18 +16,16 @@ protocol MovieListProtocol: ObservableObject {
     var isLoadingNextPage: Bool { get }
     var errorMessage: String? { get }
     var currentPage: Int { get }
-    
     func fetchMovies() async
     func loadNextPage() async
     func refresh() async
 }
 
-@Observable
 class MovieListViewModel: MovieListProtocol {
-    var movies: [Movie] = []
-    var isLoading = false
-    var isLoadingNextPage = false
-    var errorMessage: String?
+    @Published var movies: [Movie] = []
+    @Published var isLoading = false
+    @Published var isLoadingNextPage = false
+    @Published var errorMessage: String?
     
     private(set) var currentPage: Int = 0
     private let networkService: NetworkService
@@ -42,21 +40,6 @@ class MovieListViewModel: MovieListProtocol {
         Task {
             await fetchMovies()
         }
-    }
-    
-    func fetchMovies() async {
-        await fetchMovies(page: 1)
-    }
-    
-    func refresh() async {
-        cancelTask()
-        currentPage = 0
-        await fetchMovies(page: 1)
-    }
-    
-    func loadNextPage() async {
-        guard !isLoadingNextPage && currentTask == nil else { return }
-        await fetchMovies(page: currentPage + 1)
     }
     
     @MainActor
@@ -105,6 +88,21 @@ class MovieListViewModel: MovieListProtocol {
                 self.errorMessage = error.localizedDescription
             }
         }
+    }
+    
+    func fetchMovies() async {
+        await fetchMovies(page: 1)
+    }
+    
+    func refresh() async {
+        cancelTask()
+        currentPage = 0
+        await fetchMovies(page: 1)
+    }
+    
+    func loadNextPage() async {
+        guard !isLoadingNextPage && currentTask == nil else { return }
+        await fetchMovies(page: currentPage + 1)
     }
     
     private func cancelTask() {

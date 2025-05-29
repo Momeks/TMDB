@@ -10,6 +10,7 @@ import MovieKit
 
 struct MovieDetailView: View {
     var movie: Movie
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ScrollView {
@@ -26,7 +27,7 @@ struct MovieDetailView: View {
                     Text(movie.title)
                         .bold()
                         .font(.title)
-                  
+                    
                     Text(movie.genres.formatted())
                         .bold()
                         .italic()
@@ -54,9 +55,31 @@ struct MovieDetailView: View {
             }
         }
         .ignoresSafeArea()
+        .overlay {
+            closeButton()
+        }
     }
 }
 
 #Preview {
     MovieDetailView(movie: Movie.previews.first!)
+}
+
+extension MovieDetailView {
+    func closeButton() -> some View {
+        return  VStack(alignment: .leading) {
+            Button("Close", systemImage: "xmark") {
+                dismiss.callAsFunction()
+            }
+            .bold()
+            .labelStyle(.iconOnly)
+            .imageScale(.large)
+            .tint(.primary)
+            
+            Spacer()
+        }
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        
+    }
 }
