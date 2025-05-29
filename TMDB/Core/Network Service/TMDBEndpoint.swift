@@ -10,15 +10,15 @@ import NetworkKit
 
 enum TMDBPath {
     case movieList(type: String, page: Int)
-    case search(text: String, adult: Bool)
+    case search(text: String, includeAdult: Bool)
     case custom(path: String, query: [URLQueryItem])
     
     var path: String {
         switch self {
         case .movieList(let type, _):
             return "movie/\(type)"
-        case .search(let text, _):
-            return "search/\(text)"
+        case .search(_, _):
+            return "search/movie"
         case .custom(let path, _):
             return path
         }
@@ -28,8 +28,11 @@ enum TMDBPath {
         switch self {
         case .movieList(_, let page):
             return [URLQueryItem(name: "page", value: "\(page)")]
-        case .search(_, let isAdult):
-            return [URLQueryItem(name: "include_adult", value: "\(isAdult)")]
+        case .search(let text, let includeAdult):
+            return [
+                URLQueryItem(name: "query", value: text),
+                URLQueryItem(name: "include_adult", value: "\(includeAdult)")
+            ]
         case .custom(_, let query):
             return query
         }

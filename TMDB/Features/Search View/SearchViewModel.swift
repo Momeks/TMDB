@@ -12,9 +12,10 @@ import NetworkKit
 
 protocol SearchProtocol: ObservableObject {
     var movies: [Movie] { get }
-    var searchText: String { get }
+    var searchText: String { get set }
     var isLoading: Bool { get }
     var errorMessage: String? { get }
+    var isEmptyResult: Bool { get }
     func searchMovie(_ text: String, adultIncluded: Bool) async
 }
 
@@ -23,6 +24,10 @@ class SearchViewModel: SearchProtocol {
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
+    
+    var isEmptyResult: Bool {
+        !isLoading && movies.isEmpty && !searchText.isEmpty && errorMessage == nil
+    }
     
     private let networkService: NetworkService
     private let endpointProvider: EndpointProvider
@@ -33,18 +38,24 @@ class SearchViewModel: SearchProtocol {
          endpointProvider: EndpointProvider = TMDBEndpointProvider()) {
         self.networkService = networkService
         self.endpointProvider = endpointProvider
-        
         setupSearchSubscription()
     }
     
     @MainActor
     func searchMovie(_ text: String, adultIncluded: Bool = false) async {
-        guard currentTask == nil else { return }
+        currentTask?.cancel()
+        
+        // Clear results if search text is empty
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            movies = []
+            errorMessage = nil
+            return
+        }
         
         isLoading = true
         errorMessage = nil
         
-        let endpoint = endpointProvider.endpoint(for: .search(text: searchText, adult: adultIncluded))
+        let endpoint = endpointProvider.endpoint(for: .search(text: text, includeAdult: adultIncluded))
         
         currentTask = Task {
             defer {
@@ -65,16 +76,18 @@ class SearchViewModel: SearchProtocol {
             } catch is CancellationError {
                 return
             } catch let error as NetworkError {
+                self.movies = []
                 self.errorMessage = error.userMessage
             } catch {
+                self.movies = []
                 self.errorMessage = error.localizedDescription
             }
         }
     }
     
-    func setupSearchSubscription<S: Scheduler>(scheduler: S = DispatchQueue.main) {
+    func setupSearchSubscription() {
         $searchText
-            .debounce(for: .milliseconds(300), scheduler: scheduler)
+            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .sink { [weak self] text in
                 Task {

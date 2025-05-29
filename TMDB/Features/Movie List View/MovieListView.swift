@@ -11,6 +11,7 @@ import MovieKit
 struct MovieListView<ViewModel: MovieListViewModel>: View {
     @StateObject var viewModel: ViewModel
     @State private var selectedMovie: Movie? = nil
+    @State private var showSearch: Bool = false
     
     @Namespace private var namespace
     
@@ -23,7 +24,7 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
                     ProgressView()
             
                 } else if viewModel.errorMessage != nil {
-                    ErrorView(title: viewModel.errorMessage ?? "") {
+                    ErrorView(description: viewModel.errorMessage ?? "") {
                         refresh()
                     }
                     
@@ -49,6 +50,7 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("search", systemImage: "magnifyingglass") {
+                        showSearch.toggle()
                     }
                 }
             }
@@ -56,6 +58,9 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
                 MovieDetailView(movie: movie)
                     .matchedGeometryEffect(id: movie.id, in: namespace)
                     .navigationTransition(.zoom(sourceID: movie.id, in: namespace))
+            }
+            .navigationDestination(isPresented: $showSearch) {
+                SearchView(viewModel: SearchViewModel())
             }
         }
     }

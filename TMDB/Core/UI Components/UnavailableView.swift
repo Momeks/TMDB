@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ErrorView: View {
-    var title: String
+    var description: String
     var action: (() -> Void)?
     
     var body: some View {
         ContentUnavailableView(label: {
-            Label(title, systemImage: "exclamationmark.triangle")
+            Label("Error", systemImage: "exclamationmark.triangle")
+        }, description: {
+            Text(description)
         }, actions: {
             Button("refresh", systemImage: "arrow.clockwise") {
                 action?()
@@ -23,5 +25,5 @@ struct ErrorView: View {
 }
 
 #Preview {
-    ErrorView(title: "Error")
+    ErrorView(description: "Error")
 }
