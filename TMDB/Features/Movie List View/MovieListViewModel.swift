@@ -72,7 +72,7 @@ class MovieListViewModel: MovieListProtocol {
             isLoadingNextPage = true
         }
         
-        let endpoint = endpointProvider.endpoint(for: .movieList(type: AppConfig.listType, page: page))
+        let endpoint = endpointProvider.endpoint(for: .movieList(type: AppConfig.listType.rawValue, page: page))
         
         currentTask = Task {
             defer {
@@ -100,13 +100,9 @@ class MovieListViewModel: MovieListProtocol {
             } catch is CancellationError {
                 return
             } catch let error as NetworkError {
-                if isInitialLoad {
-                    self.errorMessage = error.localizedDescription
-                }
+                self.errorMessage = error.userMessage
             } catch {
-                if isInitialLoad {
-                    self.errorMessage = error.localizedDescription
-                }
+                self.errorMessage = error.localizedDescription
             }
         }
     }
