@@ -85,9 +85,9 @@ class SearchViewModel: SearchProtocol {
         }
     }
     
-    func setupSearchSubscription() {
+    func setupSearchSubscription<S: Scheduler>(scheduler: S = DispatchQueue.main) {
         $searchText
-            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
+            .debounce(for: .milliseconds(300), scheduler: scheduler)
             .removeDuplicates()
             .sink { [weak self] text in
                 Task {
