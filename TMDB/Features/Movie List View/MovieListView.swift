@@ -10,12 +10,17 @@ import MovieKit
 
 struct MovieListView<ViewModel: MovieListViewModel>: View {
     @StateObject var viewModel: ViewModel
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var selectedMovie: Movie? = nil
     @State private var showSearch: Bool = false
-    
     @Namespace private var namespace
     
-    private let gridColumns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 16), count: 2)
+    private var gridColumns: [GridItem] {
+        let gridConfig = GridLayoutConfiguration.default
+        let columnCount = horizontalSizeClass == .regular ?
+        gridConfig.regularColumns : gridConfig.compactColumns
+        return Array(repeating: GridItem(.flexible(), spacing: gridConfig.spacing), count: columnCount)
+    }
     
     var body: some View {
         NavigationStack {
@@ -56,7 +61,6 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
             }
             .sheet(item: $selectedMovie) { movie in
                 MovieDetailView(movie: movie)
-                    .matchedGeometryEffect(id: movie.id, in: namespace)
                     .navigationTransition(.zoom(sourceID: movie.id, in: namespace))
             }
             .navigationDestination(isPresented: $showSearch) {

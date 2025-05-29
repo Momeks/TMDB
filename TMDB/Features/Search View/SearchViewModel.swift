@@ -43,7 +43,7 @@ class SearchViewModel: SearchProtocol {
     
     @MainActor
     func searchMovie(_ text: String, adultIncluded: Bool = false) async {
-        currentTask?.cancel()
+        cancelTask()
         
         // Clear results if search text is empty
         guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
@@ -95,5 +95,10 @@ class SearchViewModel: SearchProtocol {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func cancelTask() {
+        currentTask?.cancel()
+        currentTask = nil
     }
 }

@@ -16,7 +16,13 @@ struct MovieDetailView: View {
         ScrollView {
             VStack(spacing: 10) {
                 VStack(spacing: -50) {
-                    RemoteImageView(url: movie.backdropURL())
+                    if let backdropURL = movie.backdropURL(size: "w780") {
+                        RemoteImageView(url: backdropURL)
+                    } else {
+                        Image("default_backdrop")
+                            .resizable()
+                            .scaledToFill()
+                    }
                     
                     RemoteImageView(url: movie.posterURL())
                         .frame(width: 170, height: 250)
@@ -55,6 +61,7 @@ struct MovieDetailView: View {
             }
         }
         .ignoresSafeArea()
+        .padding(.bottom)
         .overlay {
             closeButton()
         }

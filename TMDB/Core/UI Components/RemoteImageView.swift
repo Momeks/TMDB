@@ -21,7 +21,7 @@ struct RemoteImageView: View {
             case .success(let image):
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .opacity(isImageLoaded ? 1 : 0)
                     .onAppear {
                         withAnimation(.easeIn(duration: animationDuration)) {

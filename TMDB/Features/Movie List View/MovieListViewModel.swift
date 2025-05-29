@@ -44,7 +44,7 @@ class MovieListViewModel: MovieListProtocol {
     
     @MainActor
     private func fetchMovies(page: Int) async {
-        guard currentTask == nil else { return }
+        cancelTask()
         
         let isInitialLoad = page == 1
         
@@ -95,7 +95,6 @@ class MovieListViewModel: MovieListProtocol {
     }
     
     func refresh() async {
-        cancelTask()
         currentPage = 0
         await fetchMovies(page: 1)
     }
@@ -108,7 +107,5 @@ class MovieListViewModel: MovieListProtocol {
     private func cancelTask() {
         currentTask?.cancel()
         currentTask = nil
-        isLoading = false
-        isLoadingNextPage = false
     }
 }
