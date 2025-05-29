@@ -8,5 +8,5 @@
 import Foundation
 
 struct AppConfig {
-    static let listType = MovieList.nowPlaying /// we can change it to popular or other types
+    static let listType = MovieList.popular /// it can be changed to top rated or other types
 }

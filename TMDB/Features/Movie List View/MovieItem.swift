@@ -26,7 +26,7 @@ struct MovieItem: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
                 
-                Text(movie.formattedReleasedDate ?? "")
+                Text(movie.formattedReleaseDate ?? "")
                     .foregroundStyle(.secondary)
                     .font(.callout)
             }

@@ -6,30 +6,40 @@
 //
 
 import SwiftUI
+import MovieKit
 
 struct MovieListView<ViewModel: MovieListViewModel>: View {
     @StateObject var viewModel: ViewModel
-    let gridColumns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 16), count: 2)
+    @State private var selectedMovie: Movie? = nil
+    
+    @Namespace private var namespace
+    
+    private let gridColumns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 16), count: 2)
     
     var body: some View {
         NavigationStack {
             ZStack {
                 if viewModel.isLoading {
                     ProgressView()
+            
                 } else if viewModel.errorMessage != nil {
                     ErrorView(title: viewModel.errorMessage ?? "") {
                         refresh()
                     }
+                    
                 } else {
                     ScrollView {
                         LazyVGrid(columns: gridColumns) {
                             ForEach(viewModel.movies) { movie in
-                                MovieItem(movie: movie)
-                                    .onAppear {
-                                        if viewModel.movies.last?.id == movie.id {
-                                            loadNextPage()
-                                        }
+                                MovieItem(movie: movie) {
+                                    selectedMovie = movie
+                                }
+                                .matchedGeometryEffect(id: movie.id, in: namespace)
+                                .onAppear {
+                                    if viewModel.movies.last?.id == movie.id {
+                                        loadNextPage()
                                     }
+                                }
                             }
                         }
                     }
@@ -39,9 +49,14 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("search", systemImage: "magnifyingglass") {
-                        
+                        // Add search functionality here
                     }
                 }
+            }
+            .sheet(item: $selectedMovie) { movie in
+                MovieDetailView(movie: movie)
+                    .matchedGeometryEffect(id: movie.id, in: namespace)
+                    .navigationTransition(.zoom(sourceID: movie.id, in: namespace))
             }
         }
     }
@@ -51,7 +66,7 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
     MovieListView(viewModel: MovieListViewModel())
 }
 
-//MARK: - Functions
+// MARK: - Functions
 extension MovieListView {
     private func refresh() {
         Task {

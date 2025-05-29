@@ -18,8 +18,6 @@ struct RemoteImageView: View {
             switch phase {
             case .empty:
                 ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             case .success(let image):
                 image
                     .resizable()
