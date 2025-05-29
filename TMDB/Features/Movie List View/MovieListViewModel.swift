@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import Combine
 import MovieKit
 import NetworkKit
-import Combine
 
 protocol MovieListProtocol: ObservableObject {
     var movies: [Movie] { get }

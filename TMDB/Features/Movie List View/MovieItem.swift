@@ -20,7 +20,7 @@ struct MovieItem: View {
                 RemoteImageView(url: movie.posterURL())
                     .frame(width: 120, height: 180)
                 
-                Text(movie.originalTitle)
+                Text(movie.title)
                     .bold()
                     .frame(width: 120)
                     .lineLimit(2)

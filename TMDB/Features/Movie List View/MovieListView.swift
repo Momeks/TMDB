@@ -13,21 +13,33 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: gridColumns) {
-                    ForEach(viewModel.movies) { movie in
-                        MovieItem(movie: movie)
+            ZStack {
+                if viewModel.isLoading {
+                    ProgressView()
+                } else if viewModel.errorMessage != nil {
+                    ErrorView(title: viewModel.errorMessage ?? "") {
+                        refresh()
+                    }
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: gridColumns) {
+                            ForEach(viewModel.movies) { movie in
+                                MovieItem(movie: movie)
+                                    .onAppear {
+                                        if viewModel.movies.last?.id == movie.id {
+                                            loadNextPage()
+                                        }
+                                    }
+                            }
+                        }
                     }
                 }
             }
-            .navigationTitle(AppConfig.listType.tilte.capitalized)
-            
+            .navigationTitle(AppConfig.listType.tilte)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("refresh", systemImage: "arrow.clockwise") {
-                        Task {
-                            await viewModel.refresh()
-                        }
+                    Button("search", systemImage: "magnifyingglass") {
+                        
                     }
                 }
             }
@@ -37,4 +49,19 @@ struct MovieListView<ViewModel: MovieListViewModel>: View {
 
 #Preview {
     MovieListView(viewModel: MovieListViewModel())
+}
+
+//MARK: - Functions
+extension MovieListView {
+    private func refresh() {
+        Task {
+            await viewModel.refresh()
+        }
+    }
+    
+    private func loadNextPage() {
+        Task {
+            await viewModel.loadNextPage()
+        }
+    }
 }

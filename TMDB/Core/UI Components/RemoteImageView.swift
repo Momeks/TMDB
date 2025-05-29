@@ -10,9 +10,9 @@ import SwiftUI
 struct RemoteImageView: View {
     let url: URL?
     let animationDuration: Double = 0.3
-
+    
     @State private var isImageLoaded = false
-
+    
     var body: some View {
         AsyncImage(url: url) { phase in
             switch phase {
@@ -32,10 +32,14 @@ struct RemoteImageView: View {
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 15))
             case .failure:
-                Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.gray)
+                Image(systemName: "photo.trianglebadge.exclamationmark")
+                    .background {
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(lineWidth: 1.1)
+                            .frame(width: 120, height: 180)
+                    }
+                    .foregroundColor(.secondary)
+                
             @unknown default:
                 EmptyView()
             }
