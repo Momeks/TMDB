@@ -32,9 +32,9 @@ class MovieListViewModel: MovieListProtocol {
     private let endpointProvider: EndpointProvider
     private var currentTask: Task<Void, Never>?
     
-    init(netowrkService: NetworkService = URLSessionNetworkService(),
+    init(networkService: NetworkService = URLSessionNetworkService(),
          endpointProvider: EndpointProvider = TMDBEndpointProvider()) {
-        self.networkService = netowrkService
+        self.networkService = networkService
         self.endpointProvider = endpointProvider
         
         Task {
