@@ -46,12 +46,12 @@ This project takes API key protection seriously by using Obfuscator to encode th
 #### 🔌 Data Source
 All movie data in this app is fetched in real-time from the [TMDB API](https://developer.themoviedb.org/), a free and community-driven movie and TV database.  
 For more information about the available endpoints and usage, refer to the official documentation:  
-[https://developer.themoviedb.org/reference/intro](https://developer.themoviedb.org/reference/intro)
+[https://developer.themoviedb.org/reference/intro](https://developer.themoviedb.org/reference/intro/getting-started)
 
 ## 📦 Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Momeks/TMDB.git
-2.    Open Bitcoin.xcodeproj in Xcode.
+2.    Open TMDB.xcodeproj in Xcode.
 3.    Run on a simulator or device.
