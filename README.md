@@ -4,7 +4,7 @@ A Swift-based iOS app that allows users to browse, search, and explore movies fr
 ![TMDB Screenshot](http://worldofdinosaurs.net/news/wp-content/uploads/2025/05/tmdb.png)
 
 ### 🧭 Features
-*    Movie List: Browse movies from various categories such as Popular, Top Rated, and more.
+*    Movie List: Browse movies from various categories such as Popular, Top Rated, and more with infinite scrolling.
 *    Detail View: Tap on any movie to see detailed information including synopsis, ratings, and release date.
 *    Search: Find movies quickly by searching for titles.
 
@@ -47,6 +47,9 @@ This project takes API key protection seriously by using Obfuscator to encode th
 All movie data in this app is fetched in real-time from the [TMDB API](https://developer.themoviedb.org/), a free and community-driven movie and TV database.  
 For more information about the available endpoints and usage, refer to the official documentation:  
 [https://developer.themoviedb.org/reference/intro](https://developer.themoviedb.org/reference/intro/getting-started)
+
+## 📽️ App Preview
+[![Watch App Preview](https://worldofdinosaurs.net/news/wp-content/uploads/2025/05/preview.png)](https://drive.google.com/file/d/1-QAzy7g1DrfpL77gQaE5VdpqqmeYQv-Q/view)
 
 ## 📦 Installation
 
