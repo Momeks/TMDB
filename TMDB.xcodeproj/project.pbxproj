@@ -6,12 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		7B0F7F332DEF1D7500EFD586 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0F7F322DEF1D7500EFD586 /* MovieKit */; };
-		7B0F7F362DEF1D8900EFD586 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0F7F352DEF1D8900EFD586 /* NetworkKit */; };
-		7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE492DE7056600C07654 /* MovieKit */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		7B8EDED02DE6FC6F0008E3CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -58,9 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0F7F362DEF1D8900EFD586 /* NetworkKit in Frameworks */,
-				7B0F7F332DEF1D7500EFD586 /* MovieKit in Frameworks */,
-				7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,9 +120,6 @@
 			);
 			name = TMDB;
 			packageProductDependencies = (
-				7BAACE492DE7056600C07654 /* MovieKit */,
-				7B0F7F322DEF1D7500EFD586 /* MovieKit */,
-				7B0F7F352DEF1D8900EFD586 /* NetworkKit */,
 			);
 			productName = TMDB;
 			productReference = 7B8EDEC22DE6FC6D0008E3CB /* TMDB.app */;
@@ -216,8 +204,6 @@
 			mainGroup = 7B8EDEB92DE6FC6D0008E3CB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				7B0F7F312DEF1D7500EFD586 /* XCRemoteSwiftPackageReference "MovieKit" */,
-				7B0F7F342DEF1D8900EFD586 /* XCRemoteSwiftPackageReference "NetworkKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7B8EDEC32DE6FC6D0008E3CB /* Products */;
@@ -582,42 +568,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7B0F7F312DEF1D7500EFD586 /* XCRemoteSwiftPackageReference "MovieKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Momeks/MovieKit.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		7B0F7F342DEF1D8900EFD586 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Momeks/NetworkKit.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7B0F7F322DEF1D7500EFD586 /* MovieKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7B0F7F312DEF1D7500EFD586 /* XCRemoteSwiftPackageReference "MovieKit" */;
-			productName = MovieKit;
-		};
-		7B0F7F352DEF1D8900EFD586 /* NetworkKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7B0F7F342DEF1D8900EFD586 /* XCRemoteSwiftPackageReference "NetworkKit" */;
-			productName = NetworkKit;
-		};
-		7BAACE492DE7056600C07654 /* MovieKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MovieKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B8EDEBA2DE6FC6D0008E3CB /* Project object */;
 }
