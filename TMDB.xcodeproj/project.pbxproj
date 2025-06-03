@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE492DE7056600C07654 /* MovieKit */; };
-<<<<<<< HEAD
-		7BAACE4D2DE7065F00C07654 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE4C2DE7065F00C07654 /* NetworkKit */; };
-		7BAACE622DE707F700C07654 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE612DE707F700C07654 /* NetworkKit */; };
-		7BAACE652DE7081E00C07654 /* MovieKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAACE642DE7081E00C07654 /* MovieKit */; };
-=======
->>>>>>> parent of d3bef83 (Add NetworkKit package)
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +31,7 @@
 		7B8EDEC22DE6FC6D0008E3CB /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8EDECF2DE6FC6F0008E3CB /* TMDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8EDED92DE6FC6F0008E3CB /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-<<<<<<< HEAD
-=======
 		7BAACE472DE7055500C07654 /* MovieKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MovieKit; sourceTree = "<group>"; };
->>>>>>> parent of d3bef83 (Add NetworkKit package)
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -66,12 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				7BAACE652DE7081E00C07654 /* MovieKit in Frameworks */,
-				7BAACE622DE707F700C07654 /* NetworkKit in Frameworks */,
-				7BAACE4D2DE7065F00C07654 /* NetworkKit in Frameworks */,
-=======
->>>>>>> parent of d3bef83 (Add NetworkKit package)
 				7BAACE4A2DE7056600C07654 /* MovieKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,10 +81,7 @@
 		7B8EDEB92DE6FC6D0008E3CB = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				7BAACE472DE7055500C07654 /* MovieKit */,
->>>>>>> parent of d3bef83 (Add NetworkKit package)
 				7B8EDEC42DE6FC6D0008E3CB /* TMDB */,
 				7B8EDED22DE6FC6F0008E3CB /* TMDBTests */,
 				7B8EDEDC2DE6FC6F0008E3CB /* TMDBUITests */,
@@ -138,12 +120,6 @@
 			name = TMDB;
 			packageProductDependencies = (
 				7BAACE492DE7056600C07654 /* MovieKit */,
-<<<<<<< HEAD
-				7BAACE4C2DE7065F00C07654 /* NetworkKit */,
-				7BAACE612DE707F700C07654 /* NetworkKit */,
-				7BAACE642DE7081E00C07654 /* MovieKit */,
-=======
->>>>>>> parent of d3bef83 (Add NetworkKit package)
 			);
 			productName = TMDB;
 			productReference = 7B8EDEC22DE6FC6D0008E3CB /* TMDB.app */;
@@ -619,23 +595,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = MovieKit;
 		};
-<<<<<<< HEAD
-		7BAACE4C2DE7065F00C07654 /* NetworkKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkKit;
-		};
-		7BAACE612DE707F700C07654 /* NetworkKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7BAACE602DE707F700C07654 /* XCRemoteSwiftPackageReference "NetworkKit" */;
-			productName = NetworkKit;
-		};
-		7BAACE642DE7081E00C07654 /* MovieKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7BAACE632DE7081E00C07654 /* XCRemoteSwiftPackageReference "MovieKit" */;
-			productName = MovieKit;
-		};
-=======
->>>>>>> parent of d3bef83 (Add NetworkKit package)
 /* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B8EDEBA2DE6FC6D0008E3CB /* Project object */;
