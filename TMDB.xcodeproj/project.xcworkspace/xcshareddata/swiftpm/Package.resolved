@@ -1,0 +1,24 @@
+{
+  "originHash" : "c324c4bd143a1ec622fca73a4110fe93d380a953640a9810a2a35e53f1066629",
+  "pins" : [
+    {
+      "identity" : "moviekit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:Momeks/MovieKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bb6bd8e972f27629941f8b34487ada60d0a3f47a"
+      }
+    },
+    {
+      "identity" : "networkkit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:Momeks/NetworkKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "802ab7ef38caf757d2e0c88d88d546efe16e399b"
+      }
+    }
+  ],
+  "version" : 3
+}
