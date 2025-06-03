@@ -1,10 +1,10 @@
 {
-  "originHash" : "c324c4bd143a1ec622fca73a4110fe93d380a953640a9810a2a35e53f1066629",
+  "originHash" : "dfba7423dc7e016d3780449d1809a8fa60307c2d8889bfd02ccf60e8fd5ca246",
   "pins" : [
     {
       "identity" : "moviekit",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:Momeks/MovieKit.git",
+      "location" : "https://github.com/Momeks/MovieKit.git",
       "state" : {
         "branch" : "main",
         "revision" : "bb6bd8e972f27629941f8b34487ada60d0a3f47a"
